@@ -12,8 +12,7 @@ connectDB()
 const app = express()
 app.use(express.json())
 
-app.use("/signup", authRoutes)
-app.use("/login", authRoutes)
+app.use("/auth", authRoutes)
 app.use("/expenses", expenseRoutes)
 
 app.use((err, req, res, next) => {
