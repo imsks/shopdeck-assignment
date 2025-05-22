@@ -4,7 +4,9 @@ import connectDB from "./config/db.js"
 import authRoutes from "./routes/auth.js"
 import expenseRoutes from "./routes/expenses.js"
 
-dotenv.config()
+dotenv.config({
+    path: ".env.local"
+})
 connectDB()
 
 const app = express()
@@ -18,5 +20,5 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500).json({ message: err.message })
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORTS
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
